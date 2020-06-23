@@ -103,6 +103,7 @@ def forwarded_dns_request(data):
     udps = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     udps.sendto(data, (DNS_IP, 53))
     data, addr = udps.recvfrom(1024)
+    udps.close()
 
     return data
 
